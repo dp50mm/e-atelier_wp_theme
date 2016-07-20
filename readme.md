@@ -13,4 +13,7 @@ For both questions we've created a custom taxonomy allowing us to build specific
 Tutorials guide students through a complete electronics project.
 
 ### Components taxonomy
-Component pages describe specific parts such as resistors, transistors and LEDs. 
+Component pages describe specific parts such as resistors, transistors and LEDs.
+
+### Activity taxonomy
+Next to these two content types there is also a taxonomy for activities. This allows educators to create custom content for educational activities such as courses, workshops, hackathons and possibly other things.

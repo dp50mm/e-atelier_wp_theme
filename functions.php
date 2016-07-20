@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * Bootstrap nav menu walker
@@ -8,7 +8,7 @@ require_once('wp_bootstrap_navwalker.php');
 /* Theme setup */
 add_action( 'after_setup_theme', 'wpt_setup' );
     if ( ! function_exists( 'wpt_setup' ) ):
-        function wpt_setup() {  
+        function wpt_setup() {
             register_nav_menu( 'primary', __( 'Primary navigation', 'wptuts' ) );
         } endif;
 
@@ -36,7 +36,7 @@ function create_components_post_type() {
     'view_item'          => __( 'View Component' ),
     'search_items'       => __( 'Search Components' ),
     'not_found'          => __( 'No components found' ),
-    'not_found_in_trash' => __( 'No components found in the Trash' ), 
+    'not_found_in_trash' => __( 'No components found in the Trash' ),
     'parent_item_colon'  => '',
     'menu_name'          => 'Components'
   );
@@ -49,7 +49,7 @@ function create_components_post_type() {
     'has_archive'   => true,
     'taxonomies' 	=> array('component_types'),
   );
-  register_post_type( 'e_component', $args ); 
+  register_post_type( 'e_component', $args );
 }
 
 add_action( 'init', 'create_tutorials_post_type' );
@@ -65,7 +65,7 @@ function create_tutorials_post_type() {
     'view_item'          => __( 'View Tutorial' ),
     'search_items'       => __( 'Search Tutorials' ),
     'not_found'          => __( 'No tutorials found' ),
-    'not_found_in_trash' => __( 'No tutorials found in the Trash' ), 
+    'not_found_in_trash' => __( 'No tutorials found in the Trash' ),
     'parent_item_colon'  => '',
     'menu_name'          => 'Tutorials'
   );
@@ -78,37 +78,37 @@ function create_tutorials_post_type() {
     'has_archive'   => true,
     'taxonomies' 	=> array('category'),
   );
-  register_post_type( 'e_tutorial', $args ); 
+  register_post_type( 'e_tutorial', $args );
 }
 
 
-add_action( 'init', 'create_workshops_post_type' );
-function create_workshops_post_type() {
+add_action( 'init', 'create_activities_post_type' );
+function create_activities_post_type() {
      $labels = array(
-    'name'               => _x( 'Workshops', 'post type general name' ),
-    'singular_name'      => _x( 'Workshop', 'post type singular name' ),
-    'add_new'            => _x( 'Add New', 'workshop' ),
-    'add_new_item'       => __( 'Add New Workshop' ),
-    'edit_item'          => __( 'Edit Workshop' ),
-    'new_item'           => __( 'New Workshop' ),
-    'all_items'          => __( 'All Workshops' ),
-    'view_item'          => __( 'View Workshop' ),
-    'search_items'       => __( 'Search Workshops' ),
-    'not_found'          => __( 'No workshop found' ),
-    'not_found_in_trash' => __( 'No workshop found in the Trash' ), 
+    'name'               => _x( 'Activities', 'post type general name' ),
+    'singular_name'      => _x( 'Activity', 'post type singular name' ),
+    'add_new'            => _x( 'Add New', 'Activity' ),
+    'add_new_item'       => __( 'Add New Activity' ),
+    'edit_item'          => __( 'Edit Activity' ),
+    'new_item'           => __( 'New Activity' ),
+    'all_items'          => __( 'All Activities' ),
+    'view_item'          => __( 'View Activity' ),
+    'search_items'       => __( 'Search activities' ),
+    'not_found'          => __( 'No activity found' ),
+    'not_found_in_trash' => __( 'No activity found in the Trash' ),
     'parent_item_colon'  => '',
-    'menu_name'          => 'Workshops'
+    'menu_name'          => 'Activities'
   );
   $args = array(
     'labels'        => $labels,
-    'description'   => 'Workshops and workshop data',
+    'description'   => 'activities and activity data',
     'public'        => true,
     //'menu_position' => 5,
     'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
     'has_archive'   => true,
-    'taxonomies'    => array('workshop_types'),
+    'taxonomies'    => array('activity_types'),
   );
-  register_post_type( 'e_workshop', $args ); 
+  register_post_type( 'e_activity', $args );
 }
 
 
@@ -126,7 +126,7 @@ add_action( 'add_meta_boxes', 'prfx_custom_meta' );
  * Outputs the content of the meta box
  */
 function prfx_meta_callback( $post ) {
-    echo 'Add components here';  
+    echo 'Add components here';
 }
 
 function component_types_init() {
@@ -150,16 +150,16 @@ function component_types_init() {
 }
 add_action( 'init', 'component_types_init' );
 
-function workshop_types_init() {
+function activity_types_init() {
     // create a new taxonomy
     register_taxonomy(
-        'workshop_types',
-        'e_workshop',
+        'activity_types',
+        'e_activity',
         array(
             'hierarchical' => true,
-            'label' => __( 'Workshop Types' ),
+            'label' => __( 'activity Types' ),
             'show_ui' => true,
-            'rewrite' => array( 'slug' => 'workshop_type' ),
+            'rewrite' => array( 'slug' => 'activity_type' ),
             'capabilities' => array(
                 'manage__terms' => 'edit_posts',
                 'edit_terms' => 'manage_categories',
@@ -169,11 +169,11 @@ function workshop_types_init() {
         )
     );
 }
-add_action( 'init', 'workshop_types_init' );
+add_action( 'init', 'activity_types_init' );
 
 
 function remove_menus(){
-  
+
   //remove_menu_page( 'index.php' );                  //Dashboard
   //remove_menu_page( 'edit.php' );                   //Posts
   //remove_menu_page( 'upload.php' );                 //Media
@@ -184,7 +184,7 @@ function remove_menus(){
   //remove_menu_page( 'users.php' );                  //Users
   //remove_menu_page( 'tools.php' );                  //Tools
   //remove_menu_page( 'options-general.php' );        //Settings
-  
+
 }
 add_action( 'admin_menu', 'remove_menus' );
 
@@ -198,14 +198,14 @@ function the_breadcrumb() {
         echo '">';
         echo 'Home';
         echo '</a></li><li class="separator"> / </li>';
-        
+
         $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
         echo $term->slug;
-        
+
         if(is_author()) {
             echo"<li>Author Archive"; echo'</li>';
         }
-        
+
         if (is_category()) {
             $catTitle = single_cat_title( "", false );
             $cat = get_cat_ID( $catTitle );
@@ -227,19 +227,19 @@ function the_breadcrumb() {
                         echo "</a>";
                     }
                 }
-                if(get_post_type($post)=='e_workshop') {
-                    $post_terms = wp_get_object_terms($post->ID,'workshop_types');
+                if(get_post_type($post)=='e_activity') {
+                    $post_terms = wp_get_object_terms($post->ID,'activity_types');
                     if($post_terms) {
-                        echo "<a href='".get_permalink( get_page_by_title( 'Workshops' ) )."'>Activities</a></li><li class='ceparator'> / </li><li>";
-                        echo "<a href='".get_term_link($post_terms[0]->slug,'workshop_types')."'>";
+                        echo "<a href='".get_permalink( get_page_by_title( 'activities' ) )."'>Activities</a></li><li class='ceparator'> / </li><li>";
+                        echo "<a href='".get_term_link($post_terms[0]->slug,'activity_types')."'>";
                         echo $post_terms[0]->name;
                         echo "</a>";
                     }
                 }
-                
-            } 
-            
-            
+
+            }
+
+
             if (is_single()) {
                 echo '</li><li class="separator"> / </li><li>';
                 the_title();
@@ -270,7 +270,7 @@ function the_breadcrumb() {
 }
 
 function display_post_taxonomies() {
-    
+
         $args = array( 'public' => true, '_builtin' => false );
         $output = 'objects';
         $operator = 'and';
@@ -285,13 +285,13 @@ function display_post_taxonomies() {
                                 'title_li'              => '<span class="taxonomy_title">' . __( $taxonomy->labels->name, 'your-themes-text-domain' ) . '</span>',
                                 'show_option_none'      => __( 'No ' . $taxonomy->labels->name, 'your-themes-text-domain' )
                             );
- 
-                $content .= '<ul>' . wp_list_categories( $args ) . '</ul>'; 
+
+                $content .= '<ul>' . wp_list_categories( $args ) . '</ul>';
             }
             $content .= '</div>';
         }
-    
+
     return $content;
 }
- 
+
 ?>
