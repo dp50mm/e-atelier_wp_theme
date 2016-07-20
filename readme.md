@@ -5,13 +5,12 @@ Students often come to expert staff with two questions.
 * How can I build this?
 * Which component do I need?
 
-With the website we aim to provide an information platform to answer these two questions.
+With the website we aim to provide an information platform for students to easily find an answer to these two questions by themselves.
+
 For both questions we've created a custom taxonomy allowing us to build specific index pages, a search system and links between pages.
 
 ### Tutorials taxonomy
 Tutorials guide students through a complete electronics project.
 
 ### Components taxonomy
-Component pages describe specific
-
-To help students find the components they need we've created a custom taxonomy for components that can be integrated into tutorials.
+Component pages describe specific parts such as resistors, transistors and LEDs. 
