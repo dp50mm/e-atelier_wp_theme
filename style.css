@@ -1,0 +1,428 @@
+/*
+Theme Name: eAtelierTheme
+Theme URI: http://www.erwinhoogerwoord.nl/
+Author: Erwin Hoogerwoord
+Author URI: http://www.erwinhoogerwoord.nl/
+Description: Theme for the e-atelier website
+Version: 0.1
+
+*/
+
+a {
+	color:#3152A4;
+}
+
+#breadcrumbs{
+    list-style:none;
+    margin:10px 0;
+    overflow:hidden;
+}
+ 
+#breadcrumbs li{
+	list-style:none;
+    float:left;
+    margin-right:5px;
+}
+ 
+#breadcrumbs .separator{
+    font-weight:700;
+    font-size:15px;
+    color:#999;
+    margin-left:2px;
+}
+
+.site-title h1  {
+	font-weight:300;
+	margin-left:auto;
+	margin-right:auto;
+	width:300px;
+	text-align:center;
+	font-size:40px;
+	color:black;
+}
+.site-title h1 > a {
+	color:black;
+	text-decoration: none;
+}
+
+.home-page-content {
+	padding-left:35px;
+}
+
+.content h1 {
+	font-weight:900;
+	margin-top:0px;
+}
+.content h1 > small {
+	font-weight:200;
+	font-size:50%;
+}
+
+.post-content p {
+	margin-left:35px;
+	margin-right:70px;
+	font-size:18px;
+}
+
+.theory-title {
+	border-radius:10px 0px 10px 0px;
+	color:white;
+	padding:10px;
+	padding-left:35px;
+	margin-left:0px;
+	text-transform:uppercase;
+	background-color:#3152A4;
+}
+
+.component-title {
+	border-radius:10px 0px 10px 0px;
+	color:white;
+	padding:10px;
+	padding-left:35px;
+	margin-left:0px;
+	text-transform:uppercase;
+	background-color:#C02B26;
+}
+
+.schematic-title {
+	border-radius:10px 0px 10px 0px;
+	color:white;
+	padding:10px;
+	padding-left:35px;
+	margin-left:0px;
+	text-transform:uppercase;
+	background-color:#D2A02A;
+}
+
+.component-header {
+	border:3px transparent solid;
+	border-radius:3px;
+	border-right:2px solid grey;
+	padding-right:10px;
+	margin-right:10px;
+	margin-bottom:0px;
+	font-size:58px;
+	max-width:80%;
+	float:left;
+}
+.header-illustration {
+	float:left;
+	clear:right;
+}
+.component-title-info {
+	clear:both;
+	margin-bottom:20px;
+}
+.component-title-info > p > span > strong {
+	font-size:18px;
+}
+.component-title-info > p > span {
+	padding-right:20px;
+	margin-right:20px;
+	border-right:2px solid grey;
+}
+
+
+.tutorial-header {
+	position:relative;
+	top:0px;
+	font-size:58px;
+	text-decoration:underline;
+}
+
+.components-container {
+	padding-left:35px;
+}
+
+.components-container > .row {
+	margin-bottom:40px;
+}
+
+.components-container > .col-md-4 > h4 {
+	margin-bottom:2px;
+}
+
+
+.categories-container {
+	padding-left:35px;
+}
+
+h3 {
+	text-transform: uppercase;
+}
+.navbar {
+	border:0px;
+	border-radius:10px 0px 10px 0px;
+}
+
+.navbar-form {
+	position:absolute;
+	right:30px;
+}
+
+.navbar-form > .btn {
+	background:transparent;
+	padding:0px;
+	margin-right:0px;
+	padding-left:15px;
+	font-size:30px;
+	color:white;
+}
+.navbar-form > .form-group {
+	font-weight:400;
+	font-style:oblique;
+}
+.navbar-form > .form-group > input {
+	text-align: right;
+	position:relative;
+	font-size:20px;
+    
+}
+
+.latex {
+	-webkit-transform: scale(0.5); /* Saf3.1+, Chrome */
+     -moz-transform: scale(0.5); /* FF3.5+ */
+      -ms-transform: scale(0.5); /* IE9 */
+       -o-transform: scale(0.5); /* Opera 10.5+ */
+          transform: scale(0.5);
+}
+
+.sidebar {
+	background:#D1D2D4;
+	padding:10px;
+	border-radius:10px 0px 10px 0px;
+}
+
+.sidebar > h3 {
+	text-align:right;
+	font-weight:300;
+	font-size:20px;
+}
+
+.footer {
+	padding-bottom:30px;
+	margin-top:100px;
+	background:rgba(0,0,0,0.02);
+}
+
+.footer > hr {
+	margin-bottom:10px;
+}
+
+.footer > .row {
+	padding-left:30px;
+	padding-right:30px;
+
+}
+
+.disclaimer {
+	border-top:1px solid #D1D2D4;
+	margin-top:30px;
+	padding-top:5px;
+	max-width:500px;
+	width:100%;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+}
+.footer a {
+	color:grey;
+	margin:0px;
+}
+.sitemap p {
+	margin:0px;
+}
+.sitemap h4 a {
+	color:black;
+	
+}
+.sitemap h4 {
+	text-transform: uppercase;
+	margin:0px;
+	margin-top:15px;
+}
+
+.component-container {
+	position:relative;
+}
+
+.component-metabox {
+	border-bottom:1px solid #D1D2D4;
+	position:relative;
+	left:-10px;
+	height:45px;
+	width: calc(100% + 20px);
+}
+
+.component-metabox > img {
+	margin-left:10px;
+
+}
+
+.component-metabox > .name {
+	position:absolute;
+	top:10px;
+	font-size:16px;
+	left:60px;
+}
+.component-metabox > .name > span {
+	display:inline-block;
+	vertical-align: middle;
+}
+
+.component-metabox > .number-used {
+	position:absolute;
+	top:6px;
+	right:10px;
+	font-size:15px;
+}
+
+.stock-amount {
+	position:absolute;
+	top:6px;
+	right:70px;
+	font-size:15px;
+}
+
+.stock-amount > .number {
+	float:right;
+	color:black;
+	font-size:20px;
+}
+
+.component-metabox > .number-used > .number {
+	float:right;
+	color:black;
+	font-size:20px;
+	font-weight:300;
+
+}
+
+.component-metabox > .number-used > .multiplier {
+	float:right;
+	color:grey;
+}
+
+.component-metabox:hover {
+	background: rgba(240,240,240,1);
+}
+
+.component-metabox:hover > .number-used > .number {
+	font-weight:700;
+}
+
+.components-table-header {
+	position:relative;
+	left:-10px;
+	height:16px;
+	width: calc(100% + 20px);
+}
+
+.components-table-header > .name-header {
+	position:absolute;
+	bottom:2px;
+	left:60px;
+	padding:0px;
+	margin:0px;
+}
+
+.components-table-header > .count {
+	position:absolute;
+	right:10px;
+	bottom:2px;
+	padding:0px;
+	margin:0px;
+}
+
+.components-table-header > .stock {
+	position:absolute;
+	right:70px;
+	bottom:2px;
+	padding:0px;
+	margin:0px;
+}
+
+.meta-links {
+	text-align: right;
+	font-size:16px;
+}
+
+
+
+.iwantto-intro-sentence {
+	text-align:center;
+	font-size:16px;
+}
+.iwantto-intro-sentence > strong {
+	font-size:20px;
+	color:#996515;
+}
+
+.iwantto-title {
+	text-align:center;
+	font-size:80px;
+	font-weight:200 !important;
+	color:#A0522D;
+	margin-bottom:30px;
+}
+
+.iwantto-answer {
+	text-align:center;
+	position:relative;
+	left:-20px;
+	padding-bottom:15px;
+	padding-left:0px;
+	margin-right:0px;
+}
+
+.iwantto-answer > img {
+	display:none;
+	position:absolute;
+	top:-5px;
+	right:20px;
+}
+
+
+.iwantto-first-arrow {
+	color:grey;
+	font-size:9px;
+	position:relative;
+	top:-10px;
+}
+
+.answer-arrow {
+	position:relative;
+	left:20px;
+	top:15px;
+	color:grey;
+	font-size:10px;
+}
+
+.iwantto-tutorial-block {
+	margin-bottom:10px;
+	border-radius:0px 14px 14px 14px;
+	padding:10px;
+	padding-top:5px;
+	padding-bottom:1px;
+	background:rgba(0,0,100,0.1);
+	position:relative;
+	margin-right:20px;
+	left:-10px;
+}
+
+.iwantto-tutorial-block > h3 {
+	margin:0px;
+	margin-top:5px;
+	margin-bottom:10px;
+	text-transform:inherit;
+}
+
+.iwantto-tutorial-block:hover {
+	background:rgba(0,0,0,0.1);
+}
+
+.iwantto-tutorial-label {
+	color:grey;
+	position:relative;
+	left:-16px;
+}
