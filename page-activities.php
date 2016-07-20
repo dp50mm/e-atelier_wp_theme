@@ -6,7 +6,7 @@ Template Name: activities Page
 <?php get_header(); ?>
 <div class="row">
 	<div class="col-sm-8">
-		<h1>activities & Assignments</h1>
+		<h1>Activities</h1>
         <div class='components-container'>
         <?php
         $taxonomies = array(
@@ -41,9 +41,8 @@ Template Name: activities Page
 	</div>
 	<div class="col-sm-4">
         <div class='sidebar'>
-		  <h2>Active activities & assignments</h2>
-          <p>activity</p>
-          <p>assignment dg 242342</p>
+		  <h2>Activities</h2>
+          <p>FRANK VOEG HIER TEXT TOE IN DE page-activities.php file in de theme!!!</p>
         </div>
 	</div>
 </div>
