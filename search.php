@@ -1,9 +1,15 @@
+<?php
+/*
+Template Name: Search Page
+*/
+?>
 <?php get_header(); ?>
 <?php if(have_posts()): ?>
+	<h1>SEARCHH</h1>
 	<h1 class='entry-title'><?php printf(__('<small>Search Results for:</small> %s', 'blankslate'), get_search_query()); ?></h1>
 	<div class='row'>
 	<div class='col-md-10'>
-	<?php while(have_posts()) : the_post(); 
+	<?php while(have_posts()) : the_post();
 				echo "<h3>";
 				echo "<a href=\"";
 				the_permalink();

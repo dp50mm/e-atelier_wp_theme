@@ -1,11 +1,11 @@
 <?php
 /*
-Template Name: activities Page
+Template Name: Activities Page
 */
 ?>
 <?php get_header(); ?>
 <div class="row">
-	<div class="col-sm-8">
+	<div class="col-sm-12">
 		<h1>Activities</h1>
         <div class='components-container'>
         <?php
@@ -39,11 +39,6 @@ Template Name: activities Page
 		</div>
 
 	</div>
-	<div class="col-sm-4">
-        <div class='sidebar'>
-		  <h2>Activities</h2>
-          <p>FRANK VOEG HIER TEXT TOE IN DE page-activities.php file in de theme!!!</p>
-        </div>
-	</div>
+
 </div>
 <?php get_footer(); ?>

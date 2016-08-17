@@ -11,11 +11,11 @@
 	<div class="col-sm-8">
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-		
+
 		<?php if (is_singular('e_component')):?>
 			<div style='overflow:auto;width:100%;'>
 				<?php $illustration = get_field('component_illustration'); ?>
-				
+
 				<h1 class='component-header'><?php the_title(); ?></h1>
 				<?php if (!empty($illustration)): ?>
 					<img width='75px' height='75px' class='header-illustration' src="<?php echo $illustration['url']; ?>" alt="<?php echo $illustration['alt']; ?>" />
@@ -28,9 +28,25 @@
 			<h1 class='tutorial-header'><?php the_title(); ?></h1>
 			<p>by:<?php the_author_posts_link(); ?> written: <?php the_time('F jS, Y'); ?></p>
 		<?php endif;?>
-		
+
 		<div class='post-content'>
 		  <?php the_content(); ?>
+			<?php
+			$defaults = array(
+					'before'           => '<p>' . __( 'Pages:' ),
+					'after'            => '</p>',
+					'link_before'      => '',
+					'link_after'       => '',
+					'next_or_number'   => 'number',
+					'separator'        => ' ',
+					'nextpagelink'     => __( 'Next page' ),
+					'previouspagelink' => __( 'Previous page' ),
+					'pagelink'         => '%',
+					'echo'             => 1
+				);
+
+			        wp_link_pages( $defaults );
+			?>
 		</div>
 
 		<?php endwhile; else : ?>
@@ -55,11 +71,24 @@
 
 				</div>
 				<?php
+				require_once 'lassieAPI/LassieApi.php';
+
+				$lassie_model_api = new LassieApi(array(
+					'host' => 'http://lassie.lucid.cc',
+					'api_key' => '121032d28981c2f663bd076afa97ca64',
+					'api_secret' => '5bba0f6e8de2d9f110bbfd463a1d055f',
+				));
+
+				$group_arr = $lassie_model_api->get('model', array(
+					'name' => 'transaction_model',
+					'method' => 'get_elucid_products',
+					'format' => 'json',
+				));
 				while(have_rows('components')) : the_row();
 
 					$component = get_sub_field('component');
 					$illus = get_field('component_illustration', $component->ID);
-					
+
 					?>
 					<div class='component-container'>
 						<a href='<?php echo post_permalink($component->ID); ?>'/>
@@ -77,7 +106,7 @@
 									<?php the_sub_field('number_used'); ?>
 								</p>
 							</div>
-							
+
 						</div>
 						</a>
 						<div class="stock-amount">
@@ -90,10 +119,20 @@
 								}
 								?>
 							</p>
+							<?php
+							// lassie call
+
+
+						  // debug
+						  // var_dump($group_arr);
+							$product = $group_arr->$rs_number;
+							echo($product->{"quantity_properties"}->{"total"});
+						  echo '<br/><br/>';
+							?>
 						</div>
 					</div>
 
-				<?php endwhile; 
+				<?php endwhile;
 			}
 			?>
 
@@ -108,7 +147,7 @@
 
 			<?php endif; ?>
 		</div>
-		
+
 	</div>
 </div>
 
