@@ -17,13 +17,13 @@ a {
     margin:10px 0;
     overflow:hidden;
 }
- 
+
 #breadcrumbs li{
 	list-style:none;
     float:left;
     margin-right:5px;
 }
- 
+
 #breadcrumbs .separator{
     font-weight:700;
     font-size:15px;
@@ -176,7 +176,7 @@ h3 {
 	text-align: right;
 	position:relative;
 	font-size:20px;
-    
+
 }
 
 .latex {
@@ -234,7 +234,7 @@ h3 {
 }
 .sitemap h4 a {
 	color:black;
-	
+
 }
 .sitemap h4 {
 	text-transform: uppercase;
@@ -262,7 +262,7 @@ h3 {
 .component-metabox > .name {
 	position:absolute;
 	top:10px;
-	font-size:16px;
+	font-size:12px;
 	left:60px;
 }
 .component-metabox > .name > span {
@@ -272,31 +272,44 @@ h3 {
 
 .component-metabox > .number-used {
 	position:absolute;
-	top:6px;
+	top:8px;
 	right:10px;
-	font-size:15px;
+	font-size:12px;
+	width:30px;
+}
+
+.component-metabox > .number-used > .number {
+	float:right;
+	color:red;
+	font-size:16px;
+	font-weight:300;
+
+}
+
+.enough-in-stock-highlight {
+	color:green !important;
+}
+
+.no-elucid-stock-product {
+	color:black !important;
 }
 
 .stock-amount {
 	position:absolute;
 	top:6px;
-	right:70px;
+	right:55px;
 	font-size:15px;
+	width:20px;
 }
 
 .stock-amount > .number {
-	float:right;
 	color:black;
-	font-size:20px;
+	font-size:14px;
+	padding-top:3px;
+	font-weight:600;
+	text-align:center;
 }
 
-.component-metabox > .number-used > .number {
-	float:right;
-	color:black;
-	font-size:20px;
-	font-weight:300;
-
-}
 
 .component-metabox > .number-used > .multiplier {
 	float:right;
@@ -336,7 +349,7 @@ h3 {
 
 .components-table-header > .stock {
 	position:absolute;
-	right:70px;
+	right:65px;
 	bottom:2px;
 	padding:0px;
 	margin:0px;

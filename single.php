@@ -24,7 +24,7 @@
 		<?php elseif(is_singular('e_tutorial')):?>
 			<h1 class='tutorial-header'><?php the_title(); ?></h1>
 			<p>by:<?php the_author_posts_link(); ?> written: <?php the_time('F jS, Y'); ?></p>
-		<?php elseif(is_singular('e_workshop')):?>
+		<?php elseif(is_singular('e_activity')):?>
 			<h1 class='tutorial-header'><?php the_title(); ?></h1>
 			<p>by:<?php the_author_posts_link(); ?> written: <?php the_time('F jS, Y'); ?></p>
 		<?php endif;?>
@@ -56,8 +56,8 @@
 	<div class="col-sm-4">
 		<div class="sidebar">
 			<?php
-			if(have_rows('components')) {  ?>
-				<h3>Components</h3>
+			if(have_rows('e-lucid_components')) {  ?>
+				<h3>E-Lucid components</h3>
 				<div class="components-table-header">
 					<p class="name-header">
 						name
@@ -84,26 +84,30 @@
 					'method' => 'get_elucid_products',
 					'format' => 'json',
 				));
-				while(have_rows('components')) : the_row();
+				while(have_rows('e-lucid_components')) : the_row();
 
 					$component = get_sub_field('component');
+					$rs_number = get_sub_field('rs_number');
+					$product = $group_arr->$rs_number;
 					$illus = get_field('component_illustration', $component->ID);
+					$lassie_illustration_url = "http://lassie.lucid.cc/uploads/".$product->{"image_path"};
+					$amount_used = get_sub_field("amount_used");
+
 
 					?>
 					<div class='component-container'>
-						<a href='<?php echo post_permalink($component->ID); ?>'/>
+						<?php if($component): ?> <a href='<?php echo post_permalink($component->ID); ?>'/> <?php endif; ?>
 						<div class='component-metabox'>
-							<img width='40px' height='40px' class='header-illustration' src="<?php echo $illus['url']; ?>" alt="<?php echo $illus['alt']; ?>" />
+							<img width='40px' height='40px' class='header-illustration' src="<?php echo $lassie_illustration_url; ?>" alt="<?php echo $illus['alt']; ?>" />
 							<p class='name'>
-							<?php echo $component->post_title; ?>
-							<?php the_sub_field('value'); ?>
+							<?php echo $product->{"name"}; ?>
 							</p>
 							<div class="number-used">
 								<p class='multiplier'>
 									x
 								</p>
-								<p class="number">
-									<?php the_sub_field('number_used'); ?>
+								<p class="number <?php if ($amount_used < $product->{"quantity_properties"}->{"total"}) { echo "enough-in-stock-highlight"; } ?>">
+									<?php the_sub_field('amount_used'); ?>
 								</p>
 							</div>
 
@@ -111,30 +115,44 @@
 						</a>
 						<div class="stock-amount">
 							<p class="number">
-								<?php $rs_number = get_sub_field('rs_number');
-								if($rs_number) {
-									//echo $json[$rs_number]['stock_amount'];
-								} else {
-									//echo '<a href="https://www.google.nl/?gfe_rd=cr&ei=v-JQVOXSCNGLOv6dgNgP&gws_rd=ssl#q='.$component->post_title.'"<i class="fa fa-arrow-up"></i></a>';
-								}
-								?>
+								<?php echo $product->{"quantity_properties"}->{"total"}; ?>
 							</p>
-							<?php
-							// lassie call
-
-
-						  // debug
-						  // var_dump($group_arr);
-							$product = $group_arr->$rs_number;
-							echo($product->{"quantity_properties"}->{"total"});
-						  echo '<br/><br/>';
-							?>
 						</div>
 					</div>
 
 				<?php endwhile;
 			}
 			?>
+
+			<?php if (have_rows('other_components')): ?>
+				<h3>Other components</h3>
+				<div class="component-container">
+					<?php while(have_rows('other_components')) : the_row();
+						$component = get_sub_field('component');
+						?>
+						<?php if ($component): ?>
+							<a href='<?php echo post_permalink($component->ID); ?>'/>
+						<?php elseif(get_sub_field("url")): ?>
+							<a href='<?php the_sub_field("url"); ?>'/>
+						<?php endif; ?>
+						<div class='component-metabox'>
+							<p class='name'>
+							<?php the_sub_field("name"); ?>
+							</p>
+							<div class="number-used">
+								<p class='multiplier'>
+									x
+								</p>
+								<p class="number no-elucid-stock-product">
+									<?php the_sub_field('number_used'); ?>
+								</p>
+							</div>
+
+						</div>
+						</a>
+					<?php endwhile; ?>
+				</div>
+			<?php endif; ?>
 
 			<?php if(have_rows('links')): ?>
 				<hr>
@@ -145,6 +163,19 @@
 					<?php endwhile; ?>
 				</div>
 
+			<?php endif; ?>
+
+			<?php if(get_field("in_this_course")): ?>
+				<h3>In this course</h3>
+				<div class="in-this-course">
+					<?php the_field("in_this_course"); ?>
+				</div>
+			<?php endif; ?>
+			<?php if(get_field("read_more")): ?>
+				<h3>Read more</h3>
+				<div class="read-more">
+					<?php the_field("read_more"); ?>
+				</div>
 			<?php endif; ?>
 		</div>
 
